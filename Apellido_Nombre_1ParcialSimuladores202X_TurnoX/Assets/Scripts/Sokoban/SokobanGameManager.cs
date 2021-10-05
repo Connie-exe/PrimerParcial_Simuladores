@@ -89,33 +89,35 @@ public class SokobanGameManager : MonoBehaviour
                 objProximoProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, 2);
             }
 
-            if (objProximo != null && objProximo.CompareTag("casillero"))
+            if(objProximo == null && objProximoProximo == null)
             {
-                nivel.Tablero.setearObjeto(casillero, posicionJugador);
-                nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
+                nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);
             }
             else
             {
-                if (objProximoProximo.CompareTag("bloque"))
+                if (objProximo != null && objProximo.CompareTag("casillero"))
                 {
-                    if (objProximo != null && objProximo.CompareTag("casillero"))
+                    nivel.Tablero.setearObjeto(casillero, posicionJugador);
+                    nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
+                }
+                else
+                {
+                    if (objProximo.CompareTag("bloque") && objProximoProximo.CompareTag("bloque"))
                     {
-                        nivel.Tablero.setearObjeto(casillero, posicionJugador);
-                        nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
+                        nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);
                     }
                     else
                     {
-                        if (objProximo != null && objProximo.CompareTag("bloque") && objProximoProximo != null)
+                        nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
                         {
-                            nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
-                            {
-                                nivel.Tablero.setearObjeto(casillero, posicionJugador);
-                                nivel.Tablero.setearObjeto(bloque, posicionJugador, orientacionJugador, 2); ;
-                            }
+                            nivel.Tablero.setearObjeto(casillero, posicionJugador);
+                            nivel.Tablero.setearObjeto(bloque, posicionJugador, orientacionJugador, 2); ;
                         }
                     }
                 }
-            }            
+            }
+            
+
             InstanciadorPrefabs.instancia.graficarObjetosTablero(nivel.Tablero, SokobanLevelManager.instancia.dameLstPrefabsSokoban());
 
             if (ChequearVictoria(nivel.Tablero))
