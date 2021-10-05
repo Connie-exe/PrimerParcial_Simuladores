@@ -4,7 +4,7 @@ public class GeneradorDeNivel : MonoBehaviour
 {
     public Texture2D mapa;
     public ColorAPrefab[] colorMappings;
-
+    public GameObject reference;
     void Start()
     {
         GenerarNivel();
@@ -16,12 +16,16 @@ public class GeneradorDeNivel : MonoBehaviour
         {
             for (int y = 0; y < mapa.height; y++)
             {
-                GenerarTile(x, y);
+                GenerateTile(x, y);
             }
         }
+
+        transform.rotation = reference.transform.rotation;
+        transform.position = reference.transform.position;
+        transform.localScale = reference.transform.localScale;
     }
 
-    void GenerarTile(int x, int y)
+    void GenerateTile(int x, int y)
     {
         Color pixelColor = mapa.GetPixel(x, y);
 
@@ -34,9 +38,11 @@ public class GeneradorDeNivel : MonoBehaviour
         {
             if (colorMapping.color.Equals(pixelColor))
             {
+
                 Vector2 position = new Vector2(x, y);
-                Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
+                Instantiate(colorMapping.prefab, position, colorMapping.prefab.transform.rotation, transform);
             }
         }
     }
 }
+
