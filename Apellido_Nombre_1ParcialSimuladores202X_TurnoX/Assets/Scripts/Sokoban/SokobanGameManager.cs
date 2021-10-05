@@ -7,11 +7,11 @@ public class SokobanGameManager : MonoBehaviour
     Nivel nivel, nivelAux;
     GameObject casillero, casilleroTarget, pared, jugador, bloque;
     List<Vector2> posOcupadasEsperadasCasillerosTarget;
-    Stack pilaTablerosAnteriores;
-
+    Stack <List<Vector2>> pilaTablerosAnteriores = new Stack<List<Vector2>>();
+    
     string orientacionJugador;
     string nombreNivelActual = "Nivel1";
-    bool gameOver = false;
+    //bool gameOver = false;
     bool estoyDeshaciendo = false;
 
     private void Start()
@@ -35,6 +35,8 @@ public class SokobanGameManager : MonoBehaviour
 
     private void Update()
     {
+        //pilaTablerosAnteriores.Push(nivel.Tablero);
+        //StackTableros();
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             orientacionJugador = "derecha";
@@ -60,12 +62,14 @@ public class SokobanGameManager : MonoBehaviour
             estoyDeshaciendo = true;
             mover();
         }
+
     }
 
     private void mover()
     {
         if (estoyDeshaciendo == false)
         {
+            //StackTableros();
             Tablero tablAux = new Tablero(nivel.Tablero.casilleros.GetLength(0), nivel.Tablero.casilleros.GetLength(1));
             tablAux.setearObjetos(casillero, nivel.Tablero.damePosicionesObjetos("Casillero"));
             tablAux.setearObjetos(casilleroTarget, nivel.Tablero.damePosicionesObjetos("CasilleroTarget"));
@@ -126,6 +130,9 @@ public class SokobanGameManager : MonoBehaviour
         }
         else
         {
+            //pilaTablerosAnteriores.Peek(nivel.Tablero.damePosicionesObjetos);
+            //Debug.Log("aver ultimo");
+            
             estoyDeshaciendo = false;
         }
     }
@@ -148,5 +155,16 @@ public class SokobanGameManager : MonoBehaviour
             return false;
         }
     }
+
+    //private void StackTableros()
+    //{
+    //    pilaTablerosAnteriores.Push(nivel.Tablero.damePosicionesObjetos);
+
+    //    foreach(Tablero movimientos in pilaTablerosAnteriores)
+    //    {
+    //        Debug.Log("stackeado" + movimiento);
+    //    }
+        
+    //}    
 }
 
