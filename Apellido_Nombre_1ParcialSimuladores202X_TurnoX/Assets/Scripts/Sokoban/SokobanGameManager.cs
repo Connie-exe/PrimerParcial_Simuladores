@@ -45,6 +45,16 @@ public class SokobanGameManager : MonoBehaviour
             orientacionJugador = "arriba";
             mover();
         }
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            orientacionJugador = "abajo";
+            mover();
+        }
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            orientacionJugador = "izquierda";
+            mover();
+        }
         if (Input.GetKeyDown(KeyCode.Z))
         {
             estoyDeshaciendo = true;
@@ -67,8 +77,17 @@ public class SokobanGameManager : MonoBehaviour
 
             Vector2 posicionJugador = new Vector2(nivel.Tablero.damePosicionObjeto("Jugador").x, nivel.Tablero.damePosicionObjeto("Jugador").y);
             GameObject objProximo, objProximoProximo;
-            objProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, 1);
-            objProximoProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, 2);
+
+            if(orientacionJugador == "abajo" || orientacionJugador == "izquierda")
+            {
+                objProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, -1);
+                objProximoProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, -2);
+            }
+            else
+            {
+                objProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, 1);
+                objProximoProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, 2);
+            }
 
             if (objProximo != null && objProximo.CompareTag("casillero"))
             {
@@ -77,15 +96,26 @@ public class SokobanGameManager : MonoBehaviour
             }
             else
             {
-                if (objProximo != null && objProximo.CompareTag("bloque") && objProximoProximo != null)
+                if (objProximoProximo.CompareTag("bloque"))
                 {
-                    nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
+                    if (objProximo != null && objProximo.CompareTag("casillero"))
                     {
                         nivel.Tablero.setearObjeto(casillero, posicionJugador);
-                        nivel.Tablero.setearObjeto(bloque, posicionJugador, orientacionJugador, 2); ;
+                        nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
+                    }
+                    else
+                    {
+                        if (objProximo != null && objProximo.CompareTag("bloque") && objProximoProximo != null)
+                        {
+                            nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
+                            {
+                                nivel.Tablero.setearObjeto(casillero, posicionJugador);
+                                nivel.Tablero.setearObjeto(bloque, posicionJugador, orientacionJugador, 2); ;
+                            }
+                        }
                     }
                 }
-            }
+            }            
             InstanciadorPrefabs.instancia.graficarObjetosTablero(nivel.Tablero, SokobanLevelManager.instancia.dameLstPrefabsSokoban());
 
             if (ChequearVictoria(nivel.Tablero))
