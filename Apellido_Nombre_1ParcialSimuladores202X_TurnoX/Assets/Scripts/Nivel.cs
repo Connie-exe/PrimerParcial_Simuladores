@@ -9,4 +9,7 @@
             Nombre = nombre;
             Tablero = tablero;
         }
-    }
+
+        public Tablero Xcopiar() => (Tablero)MemberwiseClone();
+}
+

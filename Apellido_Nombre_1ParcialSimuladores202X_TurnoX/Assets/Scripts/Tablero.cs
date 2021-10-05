@@ -14,6 +14,7 @@ public class Tablero
         if (!(posicion.x < 0) || (posicion.x >= casilleros.GetLength(0)) || (posicion.y < 0) || (posicion.y >= casilleros.GetLength(1)))
         {
             casilleros[(int)posicion.x, (int)posicion.y] = objeto;
+            //casilleros[6, 5] = objeto;
         }
     }
 

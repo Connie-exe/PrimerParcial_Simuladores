@@ -8,7 +8,7 @@ public class Rotate_Casilleros : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.sceneCount == 1)
+        if(SceneManager.GetSceneByName("Nivel_Yo") == SceneManager.GetActiveScene())
         {
             transform.Rotate(-90, 0, 0);
         }
