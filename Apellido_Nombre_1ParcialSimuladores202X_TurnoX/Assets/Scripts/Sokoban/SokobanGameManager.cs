@@ -117,12 +117,11 @@ public class SokobanGameManager : MonoBehaviour
                 }
             }
             
-
             InstanciadorPrefabs.instancia.graficarObjetosTablero(nivel.Tablero, SokobanLevelManager.instancia.dameLstPrefabsSokoban());
 
             if (ChequearVictoria(nivel.Tablero))
             {
-                Debug.Log("Gané");
+                Debug.Log("ganó");
             }
         }
         else
@@ -138,7 +137,16 @@ public class SokobanGameManager : MonoBehaviour
 
     private bool ChequearVictoria(Tablero tablero)
     {
-        return false;
+        if (nivel.Tablero.damePosicionObjeto("Bloque") == nivel.Tablero.damePosicionObjeto("CasilleroTarget"))
+        {
+            Debug.Log("si se puedeeeee");
+            return true;
+        }
+        else
+        {
+            //Debug.Log("no entró");
+            return false;
+        }
     }
 }
 
