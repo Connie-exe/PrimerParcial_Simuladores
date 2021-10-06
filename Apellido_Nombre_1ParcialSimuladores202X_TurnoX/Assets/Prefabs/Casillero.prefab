@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8898389108243440614}
   - component: {fileID: -846171468889670346}
+  - component: {fileID: 6083006058453167020}
   m_Layer: 0
   m_Name: Casillero
   m_TagString: casillero
@@ -45,6 +46,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88b2a3ab6136f34c8771c7297809f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &6083006058453167020
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898389108243440609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8898389108963574239
 GameObject:
   m_ObjectHideFlags: 0

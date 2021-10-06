@@ -56,7 +56,6 @@ public class SokobanGameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Debug.Log("izquierda");
             orientacionJugador = "izquierda";
             mover();
         }
