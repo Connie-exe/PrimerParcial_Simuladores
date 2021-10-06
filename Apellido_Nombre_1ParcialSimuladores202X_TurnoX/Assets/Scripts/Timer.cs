@@ -6,16 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public GameObject timer_decor;
-    public Image fillimage;
+    public Text txt_timer;
     public float timer;
     public static float waitTime; 
 
     void Start()
     {        
         waitTime = timer;
-        timer_decor.SetActive(false);
-
+        txt_timer.text = timer.ToString();
     }
     void Update()
     {
@@ -24,13 +22,10 @@ public class Timer : MonoBehaviour
 
     public void SetTimer()
     {
-            timer_decor.SetActive(true);
             waitTime -= Time.deltaTime;
-            fillimage.fillAmount = waitTime / timer;
-
+            txt_timer.text = waitTime.ToString();
             if (waitTime <= 0)
-            {
-                timer_decor.SetActive(false);
+            {                
                 SceneManager.LoadScene(0, LoadSceneMode.Single);
             }
     }
