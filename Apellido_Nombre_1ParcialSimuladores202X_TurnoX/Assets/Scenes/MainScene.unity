@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &34467103
 Transform:
   m_ObjectHideFlags: 0
@@ -309,7 +309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &958504778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5584240945905907265, guid: 579ee7a23d44fa84ebf56c459a41e318,
     type: 3}
   firePoint: {fileID: 1006674156}
-  bulletForce: 20
+  bulletForce: 10
   timeUp: 3
   timeToShoot: 3
 --- !u!4 &1006674156
@@ -448,7 +448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006674154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 1, z: 8}
+  m_LocalPosition: {x: -4, y: 0.8, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 34467103}
@@ -603,7 +603,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5584240945905907265, guid: 579ee7a23d44fa84ebf56c459a41e318,
     type: 3}
   firePoint: {fileID: 1182841110}
-  bulletForce: 20
+  bulletForce: 10
   timeUp: 3
   timeToShoot: 3
 --- !u!4 &1182841110
@@ -614,7 +614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182841108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 1, z: 3}
+  m_LocalPosition: {x: -4, y: 0.8, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 34467103}
@@ -773,7 +773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476877093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 1, z: 6}
+  m_LocalPosition: {x: -4, y: 0.8, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 34467103}
@@ -794,7 +794,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5584240945905907265, guid: 579ee7a23d44fa84ebf56c459a41e318,
     type: 3}
   firePoint: {fileID: 1476877094}
-  bulletForce: 20
+  bulletForce: 10
   timeUp: 3
   timeToShoot: 3
 --- !u!1 &1696488687

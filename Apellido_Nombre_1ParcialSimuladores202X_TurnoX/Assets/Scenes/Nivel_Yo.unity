@@ -121,49 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &522317021
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 522317023}
-  - component: {fileID: 522317022}
-  m_Layer: 0
-  m_Name: SokobanGameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &522317022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522317021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c2b9b7775d7dd4695b5220c12374a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &522317023
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522317021}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17571506, y: -2.458165, z: -0.2756874}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545112449
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,101 +241,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &1114170717
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1114170719}
-  - component: {fileID: 1114170718}
-  m_Layer: 0
-  m_Name: InstanciadorPrefabs
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1114170718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114170717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dcb720a36cdc554b91173277d2e8ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1114170719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114170717}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.56, z: -5.49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1321539379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1321539380}
-  - component: {fileID: 1321539381}
-  m_Layer: 0
-  m_Name: SokobanLevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1321539380
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321539379}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.56, z: -5.49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1321539381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321539379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d9fbe4a59102dd42b2853430b194e67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  casillero: {fileID: 8898389108243440609, guid: c9955a8308f6f0a48a9948a7b9fc9210,
-    type: 3}
-  casilleroTarget: {fileID: 4157755455362053466, guid: 06c990e9068278c4188a3d0fd273dd5f,
-    type: 3}
-  jugador: {fileID: 7376750908415990722, guid: cd1665171739fc04b8b43159d7fd570b, type: 3}
-  bloque: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b, type: 3}
-  pared: {fileID: 4495135840980655537, guid: e82cde2dc8ecadb429a90656155b848f, type: 3}
 --- !u!1 &1461684288
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1663051832
 GameObject:
@@ -438,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdae8d022a3bf714f9d65ac802871d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapa: {fileID: 2800000, guid: 976051fadda8a98429a8b296e3ca9983, type: 3}
+  mapa: {fileID: 2800000, guid: dbbee473da15a8d40931556ae424e39c, type: 3}
   colorMappings:
   - color: {r: 0.70980394, g: 0.9019608, b: 0.11372549, a: 1}
     prefab: {fileID: 4157755455362053466, guid: 06c990e9068278c4188a3d0fd273dd5f,
@@ -459,7 +323,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1696488687
 GameObject:
@@ -605,13 +469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdae8d022a3bf714f9d65ac802871d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapa: {fileID: 2800000, guid: 976051fadda8a98429a8b296e3ca9983, type: 3}
+  mapa: {fileID: 2800000, guid: f69cf4ec78fbb5246b25725bc274a7b2, type: 3}
   colorMappings:
   - color: {r: 1, g: 0.68235296, b: 0.7882353, a: 1}
     prefab: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b,
-      type: 3}
-  - color: {r: 0.70980394, g: 0.9019608, b: 0.11372549, a: 1}
-    prefab: {fileID: 4157755455362053466, guid: 06c990e9068278c4188a3d0fd273dd5f,
       type: 3}
   - color: {r: 0.6, g: 0.8509804, b: 0.91764706, a: 1}
     prefab: {fileID: 7376750908415990722, guid: cd1665171739fc04b8b43159d7fd570b,
@@ -632,5 +493,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
