@@ -14,6 +14,11 @@ public class Bullet : MonoBehaviour
             SceneManager.LoadScene(0, LoadSceneMode.Single);
             //StartCoroutine(DestroyObject());
         }
+        if (other.gameObject.CompareTag("pared")|| other.gameObject.CompareTag("bloque")|| other.gameObject.CompareTag("limite"))//con el objeto de etiqueta jugador
+        {
+            Destroy(this.gameObject);
+            //StartCoroutine(DestroyObject());
+        }
     }
 
     //IEnumerator DestroyObject()
