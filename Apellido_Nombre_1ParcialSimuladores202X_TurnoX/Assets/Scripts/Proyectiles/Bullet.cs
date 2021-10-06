@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Bullet : MonoBehaviour
 {
     //private IEnumerator coroutine;
-    public virtual void OnCollisionEnter(Collision other)//si el objeto colisiona con...
+    public virtual void OnTriggerEnter(Collider other)//si el objeto colisiona con...
     {
         if (other.gameObject.CompareTag("jugador"))//con el objeto de etiqueta jugador
         {

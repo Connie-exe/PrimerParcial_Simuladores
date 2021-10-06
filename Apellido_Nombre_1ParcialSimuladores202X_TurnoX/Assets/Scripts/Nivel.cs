@@ -10,6 +10,6 @@
             Tablero = tablero;
         }
 
-        public Tablero Xcopiar() => (Tablero)MemberwiseClone();
+        //public Tablero Xcopiar() => (Tablero)MemberwiseClone();
 }
 
