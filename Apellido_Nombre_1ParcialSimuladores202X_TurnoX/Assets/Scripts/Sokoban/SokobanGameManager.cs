@@ -148,12 +148,13 @@ public class SokobanGameManager : MonoBehaviour
             if (this.pilaTablerosAnteiores.Count > 0)
             {
                 Debug.Log("entro a if.count");
-                this.tablAux = (Tablero) pilaTablerosAnteiores.Pop();
-                nivel.Tablero.setearObjetos(casillero, this.tablAux.damePosicionesObjetos("Casillero"));
-                nivel.Tablero.setearObjetos(casilleroTarget, this.tablAux.damePosicionesObjetos("CasilleroTarget"));
-                nivel.Tablero.setearObjetos(bloque, this.tablAux.damePosicionesObjetos("Bloque"));
-                nivel.Tablero.setearObjetos(pared, this.tablAux.damePosicionesObjetos("Pared"));
-                nivel.Tablero.setearObjetos(jugador, this.tablAux.damePosicionesObjetos("Jugador"));
+                //this.tablAux = (Tablero) pilaTablerosAnteiores.Pop();
+                //nivel.Tablero.setearObjetos(casillero, this.tablAux.damePosicionesObjetos("Casillero"));
+                //nivel.Tablero.setearObjetos(casilleroTarget, this.tablAux.damePosicionesObjetos("CasilleroTarget"));
+                //nivel.Tablero.setearObjetos(bloque, this.tablAux.damePosicionesObjetos("Bloque"));
+                //nivel.Tablero.setearObjetos(pared, this.tablAux.damePosicionesObjetos("Pared"));
+                //nivel.Tablero.setearObjetos(jugador, this.tablAux.damePosicionesObjetos("Jugador"));
+                nivel.Tablero = (Tablero)pilaTablerosAnteiores.Pop();
                 InstanciadorPrefabs.instancia.graficarObjetosTablero(nivel.Tablero, SokobanLevelManager.instancia.dameLstPrefabsSokoban());
             }
             estoyDeshaciendo = false;
