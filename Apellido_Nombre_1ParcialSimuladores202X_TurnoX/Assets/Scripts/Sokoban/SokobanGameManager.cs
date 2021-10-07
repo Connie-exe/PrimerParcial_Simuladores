@@ -7,7 +7,8 @@ public class SokobanGameManager : MonoBehaviour
     Nivel nivel, nivelAux;
     GameObject casillero, casilleroTarget, pared, jugador, bloque;
     List<Vector2> posOcupadasEsperadasCasillerosTarget;
-    Stack<Tablero> pilaTablerosAnteiores;
+    Stack<Tablero> pilaTablerosAnteiores = new Stack<Tablero>();
+    Tablero tablAux;
 
     string orientacionJugador;
     string nombreNivelActual = "Nivel1";
@@ -73,8 +74,10 @@ public class SokobanGameManager : MonoBehaviour
             tablAux.setearObjetos(pared, nivel.Tablero.damePosicionesObjetos("Pared"));
             tablAux.setearObjetos(jugador, nivel.Tablero.damePosicionesObjetos("Jugador"));
 
-            Stack myStack = new Stack();
-            myStack.Push("Hello");
+
+            this.pilaTablerosAnteiores.Push(tablAux);
+            //Stack myStack = new Stack();
+            //myStack.Push("Hello");
 
             Vector2 posicionJugador = new Vector2(nivel.Tablero.damePosicionObjeto("Jugador").x, nivel.Tablero.damePosicionObjeto("Jugador").y);
 
@@ -83,7 +86,7 @@ public class SokobanGameManager : MonoBehaviour
             objProximoProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, 2);
             if (objProximo == null && objProximoProximo == null)
             {
-                nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);   //correccion error fin de mapa
+                nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);   //ya no puede salir del index
             }
             else
             {
@@ -103,7 +106,7 @@ public class SokobanGameManager : MonoBehaviour
                         nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);
                     }
                     else
-                    {                                                                                                //Aca hice que no pueda mover los 2 bloques pegados
+                    {                                                                                                //ya no puede mover dos bloques juntos
                         nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
                         {
                             nivel.Tablero.setearObjeto(casillero, posicionJugador);
@@ -112,7 +115,26 @@ public class SokobanGameManager : MonoBehaviour
                     }
                 }
             }
+
+
+            //nivel.Tablero = (Tablero)tablAux;
+            //nivel.Tablero.setearObjetos(casillero, nivel.Tablero.damePosicionesObjetos("Casillero"));
+            //nivel.Tablero.setearObjetos(casilleroTarget, nivel.Tablero.damePosicionesObjetos("CasilleroTarget"));
+            //nivel.Tablero.setearObjetos(bloque, nivel.Tablero.damePosicionesObjetos("Bloque"));
+            //nivel.Tablero.setearObjetos(pared, nivel.Tablero.damePosicionesObjetos("Pared"));
+            //nivel.Tablero.setearObjetos(jugador, nivel.Tablero.damePosicionesObjetos("Jugador"));
+
             InstanciadorPrefabs.instancia.graficarObjetosTablero(nivel.Tablero, SokobanLevelManager.instancia.dameLstPrefabsSokoban());
+            //nivel.Tablero = tablAux;
+
+            //tablAux = nivel.Tablero;
+            //pilaTablerosAnteriores.Push(tablAux);
+            //if (ChequearVictoria(nivel.Tablero))
+            //{
+            //    Debug.Log("ganó");
+            //}
+            // nivel.Tablero = tablAux;
+            //InstanciadorPrefabs.instancia.graficarObjetosTablero(nivel.Tablero, SokobanLevelManager.instancia.dameLstPrefabsSokoban());
 
             if (ChequearVictoria(nivel.Tablero))
             {
@@ -121,6 +143,19 @@ public class SokobanGameManager : MonoBehaviour
         }
         else
         {
+            //estoyDeshaciendo = false;
+
+            if (this.pilaTablerosAnteiores.Count > 0)
+            {
+                Debug.Log("entro a if.count");
+                this.tablAux = (Tablero) pilaTablerosAnteiores.Pop();
+                nivel.Tablero.setearObjetos(casillero, this.tablAux.damePosicionesObjetos("Casillero"));
+                nivel.Tablero.setearObjetos(casilleroTarget, this.tablAux.damePosicionesObjetos("CasilleroTarget"));
+                nivel.Tablero.setearObjetos(bloque, this.tablAux.damePosicionesObjetos("Bloque"));
+                nivel.Tablero.setearObjetos(pared, this.tablAux.damePosicionesObjetos("Pared"));
+                nivel.Tablero.setearObjetos(jugador, this.tablAux.damePosicionesObjetos("Jugador"));
+                InstanciadorPrefabs.instancia.graficarObjetosTablero(nivel.Tablero, SokobanLevelManager.instancia.dameLstPrefabsSokoban());
+            }
             estoyDeshaciendo = false;
         }
     }
@@ -142,4 +177,15 @@ public class SokobanGameManager : MonoBehaviour
             return false;
         }
     }
+
+    //private void StackTableros(Tablero pTablero)
+    //{
+    //    pilaTablerosAnteriores.Push(pTablero);
+
+    //    foreach (Tablero movimientos in pilaTablerosAnteriores)
+    //    {
+    //        Debug.Log("stackeado" + movimientos);
+    //    }
+
+    //}
 }

@@ -8,7 +8,7 @@ public class SokobanLevelManager : MonoBehaviour
     public GameObject jugador;
     public GameObject bloque;
     public GameObject pared;
- 
+
     public static SokobanLevelManager instancia;
 
     void Awake()
@@ -32,10 +32,10 @@ public class SokobanLevelManager : MonoBehaviour
         lstPrefabsSokoban.Add(jugador);
         lstPrefabsSokoban.Add(pared);
         lstPrefabsSokoban.Add(bloque);
-        
+
         return lstPrefabsSokoban;
     }
-                
+
     private Tablero dameTablero(int x, int y)
     {
         Tablero tablero = new Tablero(x, y);
@@ -60,6 +60,7 @@ public class SokobanLevelManager : MonoBehaviour
     {
         List<Nivel> lstNiveles = new List<Nivel>();
         lstNiveles.Add(new Nivel("Nivel1", SokobanLevelManager.instancia.dameTableroNivel1()));
+        //lstNiveles.Add(new Nivel("Nivel1", SokobanLevelManager.instancia.dameTableroNivel2()));
         return lstNiveles;
     }
 
@@ -68,8 +69,8 @@ public class SokobanLevelManager : MonoBehaviour
         Tablero tablero = SokobanLevelManager.instancia.dameTablero(8, 8);
 
         tablero.setearObjeto(pared, new Vector2(6, 6));
-        tablero.setearObjeto(jugador, new Vector2(1,1));
-        tablero.setearObjeto(bloque, new Vector2(5,4));
+        tablero.setearObjeto(jugador, new Vector2(1, 1));
+        tablero.setearObjeto(bloque, new Vector2(5, 4));
         tablero.setearObjeto(bloque, new Vector2(3, 3));
         tablero.setearObjeto(bloque, new Vector2(4, 4));
         tablero.setearObjeto(casilleroTarget, new Vector2(1, 7));
@@ -77,6 +78,12 @@ public class SokobanLevelManager : MonoBehaviour
         tablero.setearObjeto(casilleroTarget, new Vector2(3, 7));
         return tablero;
     }
+    //private Tablero dameTableroNivel2()
+    //{
+    //    Tablero tablero = SokobanLevelManager.instancia.dameTablero(8, 8);
+        //primero recorrer la imagen pixel por pixel
+        //y con eso setear los objetos en esos pixeles
+    //}
 }
 
 
