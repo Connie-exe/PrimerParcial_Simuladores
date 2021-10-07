@@ -73,13 +73,13 @@ public class Tablero
                 valorX = offset;
                 break;
             case "izquierda":
-                valorX = offset;
+                valorX = -offset;
                 break;
             case "arriba":
                 valorY = offset;
                 break;
             case "abajo":
-                valorY = offset;
+                valorY = -offset;
                 break;
         }
 

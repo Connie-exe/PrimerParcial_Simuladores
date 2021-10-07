@@ -81,12 +81,15 @@ public class SokobanGameManager : MonoBehaviour
 
             Vector2 posicionJugador = new Vector2(nivel.Tablero.damePosicionObjeto("Jugador").x, nivel.Tablero.damePosicionObjeto("Jugador").y);
 
-            GameObject objProximo, objProximoProximo;
+            GameObject objProximo, objProximoProximo, neg_objProximo, neg_objProximoProximo;
             objProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, 1);
             objProximoProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, 2);
+            neg_objProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, -1);
+            neg_objProximoProximo = nivel.Tablero.dameObjeto(posicionJugador, orientacionJugador, -2);
+
             if (objProximo == null && objProximoProximo == null)
             {
-                nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);   //ya no puede salir del index
+                nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);   //Ya no da sale del mapa
             }
             else
             {
@@ -101,12 +104,16 @@ public class SokobanGameManager : MonoBehaviour
                 }
                 else
                 {
-                    if (objProximo.CompareTag("bloque") && objProximoProximo.CompareTag("bloque"))
+                    if (objProximo.CompareTag("bloque") && objProximoProximo.CompareTag("bloque"))   //Ya no se pueden mover 2 bloques pegados
                     {
                         nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);
                     }
-                    else
-                    {                                                                                                //ya no puede mover dos bloques juntos
+                    //if(orientacionJugador == "izquierda" && objProximo.CompareTag("bloque") && objProximoProximo.CompareTag("bloque"))
+                    //{
+                    //    nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);
+                    //}
+                    else //if(objProximo.CompareTag("bloque") && objProximoProximo.CompareTag("casillero"))
+                    {                                                                                               
                         nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 1);
                         {
                             nivel.Tablero.setearObjeto(casillero, posicionJugador);
@@ -147,7 +154,7 @@ public class SokobanGameManager : MonoBehaviour
 
             if (this.pilaTablerosAnteiores.Count > 0)
             {
-                Debug.Log("entro a if.count");
+                //Debug.Log("entro a if.count");
                 //this.tablAux = (Tablero) pilaTablerosAnteiores.Pop();
                 //nivel.Tablero.setearObjetos(casillero, this.tablAux.damePosicionesObjetos("Casillero"));
                 //nivel.Tablero.setearObjetos(casilleroTarget, this.tablAux.damePosicionesObjetos("CasilleroTarget"));
