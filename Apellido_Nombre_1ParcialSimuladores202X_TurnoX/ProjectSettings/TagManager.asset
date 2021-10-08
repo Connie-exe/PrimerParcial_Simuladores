@@ -9,6 +9,7 @@ TagManager:
   - casillero
   - pared
   - limite
+  - casilleroTarget
   layers:
   - Default
   - TransparentFX

@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: -5031792379616394859}
   m_Layer: 0
   m_Name: CasilleroTarget
-  m_TagString: casillero
+  m_TagString: casilleroTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

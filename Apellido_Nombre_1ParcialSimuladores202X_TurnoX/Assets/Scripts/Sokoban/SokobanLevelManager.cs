@@ -10,6 +10,7 @@ public class SokobanLevelManager : MonoBehaviour
     public GameObject pared;
 
     public static SokobanLevelManager instancia;
+    public static GeneradorDeNivel generator;
 
     void Awake()
     {
@@ -36,7 +37,7 @@ public class SokobanLevelManager : MonoBehaviour
         return lstPrefabsSokoban;
     }
 
-    private Tablero dameTablero(int x, int y)
+    public virtual Tablero dameTablero(int x, int y)
     {
         Tablero tablero = new Tablero(x, y);
 
@@ -60,7 +61,8 @@ public class SokobanLevelManager : MonoBehaviour
     {
         List<Nivel> lstNiveles = new List<Nivel>();
         lstNiveles.Add(new Nivel("Nivel1", SokobanLevelManager.instancia.dameTableroNivel1()));
-        //lstNiveles.Add(new Nivel("Nivel1", SokobanLevelManager.instancia.dameTableroNivel2()));
+        lstNiveles.Add(new Nivel("Nivel2", SokobanLevelManager.instancia.dameTableroNivel2()));
+        lstNiveles.Add(new Nivel("Nivel3", SokobanLevelManager.instancia.dameTableroNivel3()));
         return lstNiveles;
     }
 
@@ -78,12 +80,47 @@ public class SokobanLevelManager : MonoBehaviour
         tablero.setearObjeto(casilleroTarget, new Vector2(3, 7));
         return tablero;
     }
-    //private Tablero dameTableroNivel2()
-    //{
-    //    Tablero tablero = SokobanLevelManager.instancia.dameTablero(8, 8);
-        //primero recorrer la imagen pixel por pixel
-        //y con eso setear los objetos en esos pixeles
-    //}
+
+    private Tablero dameTableroNivel2()
+    {
+        Tablero tablero = SokobanLevelManager.instancia.dameTablero(8, 8);
+
+        tablero.setearObjeto(pared, new Vector2(3, 3));
+        tablero.setearObjeto(jugador, new Vector2(2, 2));
+        tablero.setearObjeto(bloque, new Vector2(2, 4));
+        tablero.setearObjeto(bloque, new Vector2(5, 3));
+        tablero.setearObjeto(bloque, new Vector2(4, 4));
+        tablero.setearObjeto(casilleroTarget, new Vector2(1, 7));
+        tablero.setearObjeto(casilleroTarget, new Vector2(2, 7));
+        tablero.setearObjeto(casilleroTarget, new Vector2(3, 7));
+        return tablero;
+    }
+
+    private Tablero dameTableroNivel3()
+    {
+
+        Tablero tablero = SokobanLevelManager.instancia.dameTablero(8, 8);
+        GeneradorDeNivel nuevoGenerador = new GeneradorDeNivel();
+        ElementGame elemento;
+
+        Debug.Log("Cantidad: " + nuevoGenerador.elementoLista.Count);
+
+        for (int i = 0; i < nuevoGenerador.elementoLista.Count; i++)
+        {
+            elemento = nuevoGenerador.elementoLista[i];
+            tablero.setearObjeto(elemento.prefab, elemento.vector);
+        }
+
+        //tablero.setearObjeto(nuevoGenerador.elementoLista., new Vector2(3, 3));
+        //tablero.setearObjeto(jugador, new Vector2(2, 2));
+        //tablero.setearObjeto(bloque, new Vector2(2, 4));
+        //tablero.setearObjeto(bloque, new Vector2(5, 3));
+        //tablero.setearObjeto(bloque, new Vector2(4, 4));
+        //tablero.setearObjeto(casilleroTarget, new Vector2(1, 7));
+        //tablero.setearObjeto(casilleroTarget, new Vector2(2, 7));
+        //tablero.setearObjeto(casilleroTarget, new Vector2(3, 7));
+        return tablero;
+    }
 }
 
 
