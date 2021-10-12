@@ -11,9 +11,13 @@ public class SokobanGameManager : MonoBehaviour
     Tablero tablAux;    
 
     string orientacionJugador;
-    string nombreNivelActual = "Nivel3";
+    string nombreNivelActual = "Nivel1";
     //bool gameOver = false;
     bool estoyDeshaciendo = false;
+
+
+    public List<Vector2> posicionBloque;
+    int cont;
 
     private void Start()
     {
@@ -29,6 +33,7 @@ public class SokobanGameManager : MonoBehaviour
     {
         nivel = SokobanLevelManager.instancia.dameNivel(nombre);
         posOcupadasEsperadasCasillerosTarget = nivel.Tablero.damePosicionesObjetos("CasilleroTarget");
+        posicionBloque = nivel.Tablero.damePosicionesObjetos("bloque");
         InstanciadorPrefabs.instancia.graficarCasilleros(nivel.Tablero, casillero);
         InstanciadorPrefabs.instancia.graficarCasillerosTarget(nivel.Tablero, casilleroTarget);
         InstanciadorPrefabs.instancia.graficarObjetosTablero(nivel.Tablero, SokobanLevelManager.instancia.dameLstPrefabsSokoban());
@@ -67,6 +72,10 @@ public class SokobanGameManager : MonoBehaviour
     {
         if (estoyDeshaciendo == false)
         {
+            posOcupadasEsperadasCasillerosTarget = nivel.Tablero.damePosicionesObjetos("CasilleroTarget");
+            posicionBloque = nivel.Tablero.damePosicionesObjetos("Bloque");
+
+
             Tablero tablAux = new Tablero(nivel.Tablero.casilleros.GetLength(0), nivel.Tablero.casilleros.GetLength(1));
             tablAux.setearObjetos(casillero, nivel.Tablero.damePosicionesObjetos("Casillero"));
             tablAux.setearObjetos(casilleroTarget, nivel.Tablero.damePosicionesObjetos("CasilleroTarget"));
@@ -88,6 +97,10 @@ public class SokobanGameManager : MonoBehaviour
             if (objProximo == null && objProximoProximo == null)
             {
                 nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);   //Ya no da sale del mapa
+            }
+            else
+            {
+                this.pilaTablerosAnteiores.Push(tablAux);
             }
             else
             {
@@ -121,7 +134,27 @@ public class SokobanGameManager : MonoBehaviour
 
             if (ChequearVictoria(nivel.Tablero))
             {
-                Debug.Log("Gané");
+                foreach (var bloque in posicionBloque)
+                {
+
+                    foreach (var target in dondeDeberiaPonerElBloque)
+                    {
+                        if (bloque == target)
+                        {
+                            cont++;
+                        }
+                    }
+
+                }
+                if (cont == 3)
+                {
+                    return true;
+                }
+                else
+                {
+                    cont = 0;
+                }
+                return false;
             }
         }
         else

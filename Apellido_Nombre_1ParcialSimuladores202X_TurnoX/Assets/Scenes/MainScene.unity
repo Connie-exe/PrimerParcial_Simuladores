@@ -670,6 +670,24 @@ MonoBehaviour:
   jugador: {fileID: 7376750908415990722, guid: cd1665171739fc04b8b43159d7fd570b, type: 3}
   bloque: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b, type: 3}
   pared: {fileID: 4495135840980655537, guid: e82cde2dc8ecadb429a90656155b848f, type: 3}
+  mapa: {fileID: 2800000, guid: 0ec50d7bcab7e24449925829e3cc1a9c, type: 3}
+  colorMappings:
+  - color: {r: 0, g: 0, b: 0, a: 1}
+    prefab: {fileID: 8898389108243440609, guid: c9955a8308f6f0a48a9948a7b9fc9210,
+      type: 3}
+  - color: {r: 1, g: 0.68235296, b: 0.78823537, a: 1}
+    prefab: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b,
+      type: 3}
+  - color: {r: 0.6, g: 0.85098046, b: 0.9176471, a: 1}
+    prefab: {fileID: 7376750908415990722, guid: cd1665171739fc04b8b43159d7fd570b,
+      type: 3}
+  - color: {r: 1, g: 0.49803925, b: 0.15294118, a: 1}
+    prefab: {fileID: 4495135840980655537, guid: e82cde2dc8ecadb429a90656155b848f,
+      type: 3}
+  - color: {r: 0.70980394, g: 0.90196085, b: 0.1137255, a: 1}
+    prefab: {fileID: 4157755455362053466, guid: 06c990e9068278c4188a3d0fd273dd5f,
+      type: 3}
+  reference: {fileID: 2113983120}
 --- !u!1 &1378034064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdae8d022a3bf714f9d65ac802871d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapa: {fileID: 2800000, guid: 73f819c8f2e72414bbfbc8b1955a34c6, type: 3}
+  mapa: {fileID: 2800000, guid: 0ec50d7bcab7e24449925829e3cc1a9c, type: 3}
   colorMappings:
   - color: {r: 1, g: 0.68235296, b: 0.7882353, a: 1}
     prefab: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b,
@@ -1069,14 +1087,6 @@ MonoBehaviour:
     prefab: {fileID: 8898389108243440609, guid: c9955a8308f6f0a48a9948a7b9fc9210,
       type: 3}
   reference: {fileID: 2113983120}
-  elementoLista: []
-  casillero: {fileID: 8898389108243440609, guid: c9955a8308f6f0a48a9948a7b9fc9210,
-    type: 3}
-  casilleroTarget: {fileID: 4157755455362053466, guid: 06c990e9068278c4188a3d0fd273dd5f,
-    type: 3}
-  jugador: {fileID: 7376750908415990722, guid: cd1665171739fc04b8b43159d7fd570b, type: 3}
-  bloque: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b, type: 3}
-  pared: {fileID: 4495135840980655537, guid: e82cde2dc8ecadb429a90656155b848f, type: 3}
 --- !u!4 &1779258980
 Transform:
   m_ObjectHideFlags: 0
@@ -1114,13 +1124,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113983120}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &2141227703
 GameObject:
   m_ObjectHideFlags: 0
