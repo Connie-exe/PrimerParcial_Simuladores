@@ -10,7 +10,11 @@ public class SokobanLevelManager : MonoBehaviour
     public GameObject pared;
 
     public static SokobanLevelManager instancia;
-    public static GeneradorDeNivel generator;
+    //private static GeneradorDeNivel generador;
+
+    public Texture2D mapa;
+    public ColorAPrefab[] colorMappings;
+    public GameObject reference;
 
     void Awake()
     {
@@ -98,28 +102,53 @@ public class SokobanLevelManager : MonoBehaviour
 
     private Tablero dameTableroNivel3()
     {
-
         Tablero tablero = SokobanLevelManager.instancia.dameTablero(8, 8);
-        GeneradorDeNivel nuevoGenerador = new GeneradorDeNivel();
-        ElementGame elemento;
+        tablero = GenerarNivel(tablero);
+        return tablero;        
+    }
 
-        Debug.Log("Cantidad: " + nuevoGenerador.elementoLista.Count);
-
-        for (int i = 0; i < nuevoGenerador.elementoLista.Count; i++)
+    public Tablero GenerarNivel(Tablero t)
+    {
+        for (int x = 0; x < mapa.width; x++)
         {
-            elemento = nuevoGenerador.elementoLista[i];
-            tablero.setearObjeto(elemento.prefab, elemento.vector);
+            for (int y = 0; y < mapa.height; y++)
+            {
+                t = GenerateTile(x, y, t);
+            }
         }
 
-        //tablero.setearObjeto(nuevoGenerador.elementoLista., new Vector2(3, 3));
-        //tablero.setearObjeto(jugador, new Vector2(2, 2));
-        //tablero.setearObjeto(bloque, new Vector2(2, 4));
-        //tablero.setearObjeto(bloque, new Vector2(5, 3));
-        //tablero.setearObjeto(bloque, new Vector2(4, 4));
-        //tablero.setearObjeto(casilleroTarget, new Vector2(1, 7));
-        //tablero.setearObjeto(casilleroTarget, new Vector2(2, 7));
-        //tablero.setearObjeto(casilleroTarget, new Vector2(3, 7));
-        return tablero;
+        transform.rotation = reference.transform.rotation;
+        transform.position = reference.transform.position;
+        transform.localScale = reference.transform.localScale;
+        return t;
+    }
+
+    public Tablero GenerateTile(int x, int y, Tablero t)
+    {        
+        Color pixelColor = mapa.GetPixel(x, y);
+
+        //if (pixelColor.a == 0)
+        //{
+        //    return;
+        //}
+
+        foreach (ColorAPrefab colorMapping in colorMappings)
+        {
+            if (colorMapping.color.Equals(pixelColor))
+            {
+
+                Vector2 position = new Vector2(x, y);
+                //Tablero tablero = SokobanLevelManager.instancia.dameTablero(8, 8);                
+                t.setearObjeto(colorMapping.prefab, position);
+                //Debug.Log("salida de tablero por String en for" + this.tablero.ToString());
+                //tablero.setearObjeto(jugador, position);
+
+                //Instantiate(colorMapping.prefab, position, colorMapping.prefab.transform.rotation, transform);
+               
+
+            }
+        }
+        return t;
     }
 }
 

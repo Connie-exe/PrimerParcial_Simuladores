@@ -4,6 +4,7 @@ public class Tablero
 {
     public GameObject[,] casilleros { get; set; }
 
+
     public Tablero(int x, int y)
     {
         casilleros = new GameObject[x, y];
@@ -111,5 +112,10 @@ public class Tablero
     {
         List<Vector2> lstPosicionesObjetos = damePosicionesObjetos(nombre);
         return lstPosicionesObjetos[0];
+    }
+
+    public string estas()
+    {
+        return "Estoy vivo";
     }
 }

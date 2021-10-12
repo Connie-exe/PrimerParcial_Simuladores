@@ -3,7 +3,15 @@ guid: fdae8d022a3bf714f9d65ac802871d2a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - mapa: {instanceID: 0}
+  - reference: {instanceID: 0}
+  - casillero: {instanceID: 0}
+  - casilleroTarget: {instanceID: 0}
+  - jugador: {instanceID: 0}
+  - bloque: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b,
+      type: 3}
+  - pared: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
