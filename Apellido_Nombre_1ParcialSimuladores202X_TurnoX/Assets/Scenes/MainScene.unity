@@ -184,6 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c2b9b7775d7dd4695b5220c12374a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  posOcupadasEsperadasCasillerosTarget: []
+  posicionBloque: []
+  dondeDeberiaPonerElBloque: []
 --- !u!4 &522317023
 Transform:
   m_ObjectHideFlags: 0
@@ -486,9 +489,9 @@ RectTransform:
   m_Father: {fileID: 958504782}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -464, y: 194}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 105, y: -52}
   m_SizeDelta: {x: 169.27454, y: 132.06778}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1095642931
@@ -670,24 +673,8 @@ MonoBehaviour:
   jugador: {fileID: 7376750908415990722, guid: cd1665171739fc04b8b43159d7fd570b, type: 3}
   bloque: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b, type: 3}
   pared: {fileID: 4495135840980655537, guid: e82cde2dc8ecadb429a90656155b848f, type: 3}
-  mapa: {fileID: 2800000, guid: 0ec50d7bcab7e24449925829e3cc1a9c, type: 3}
-  colorMappings:
-  - color: {r: 0, g: 0, b: 0, a: 1}
-    prefab: {fileID: 8898389108243440609, guid: c9955a8308f6f0a48a9948a7b9fc9210,
-      type: 3}
-  - color: {r: 1, g: 0.68235296, b: 0.78823537, a: 1}
-    prefab: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b,
-      type: 3}
-  - color: {r: 0.6, g: 0.85098046, b: 0.9176471, a: 1}
-    prefab: {fileID: 7376750908415990722, guid: cd1665171739fc04b8b43159d7fd570b,
-      type: 3}
-  - color: {r: 1, g: 0.49803925, b: 0.15294118, a: 1}
-    prefab: {fileID: 4495135840980655537, guid: e82cde2dc8ecadb429a90656155b848f,
-      type: 3}
-  - color: {r: 0.70980394, g: 0.90196085, b: 0.1137255, a: 1}
-    prefab: {fileID: 4157755455362053466, guid: 06c990e9068278c4188a3d0fd273dd5f,
-      type: 3}
-  reference: {fileID: 2113983120}
+  mapa: {fileID: 2800000, guid: e1e1cee1ad242b248ab55a961c73c140, type: 3}
+  gNivel: {fileID: 1779258979}
 --- !u!1 &1378034064
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,9 +748,9 @@ RectTransform:
   m_Father: {fileID: 958504782}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -428, y: 194}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 141, y: -52}
   m_SizeDelta: {x: 82.02051, y: 29.96698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1476877093
@@ -1069,7 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdae8d022a3bf714f9d65ac802871d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapa: {fileID: 2800000, guid: 0ec50d7bcab7e24449925829e3cc1a9c, type: 3}
+  mapa: {fileID: 2800000, guid: e1e1cee1ad242b248ab55a961c73c140, type: 3}
   colorMappings:
   - color: {r: 1, g: 0.68235296, b: 0.7882353, a: 1}
     prefab: {fileID: 2492000819906198164, guid: 181ba36944b037948b1381d0deecff7b,
@@ -1083,10 +1070,8 @@ MonoBehaviour:
   - color: {r: 0.70980394, g: 0.9019608, b: 0.11372549, a: 1}
     prefab: {fileID: 4157755455362053466, guid: 06c990e9068278c4188a3d0fd273dd5f,
       type: 3}
-  - color: {r: 0, g: 0, b: 0, a: 1}
-    prefab: {fileID: 8898389108243440609, guid: c9955a8308f6f0a48a9948a7b9fc9210,
-      type: 3}
   reference: {fileID: 2113983120}
+  lvlManager: {fileID: 1321539381}
 --- !u!4 &1779258980
 Transform:
   m_ObjectHideFlags: 0

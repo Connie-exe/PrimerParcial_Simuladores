@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour
             txt_timer.text = waitTime.ToString();
             if (waitTime <= 0)
             {                
-                SceneManager.LoadScene(0, LoadSceneMode.Single);
+                SceneManager.LoadScene(0);
             }
     }
 }
