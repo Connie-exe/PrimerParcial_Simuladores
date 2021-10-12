@@ -12,12 +12,15 @@ public class SokobanLevelManager : MonoBehaviour
     public static SokobanLevelManager instancia;
     //private static GeneradorDeNivel generador;
 
+    public Tablero tablero;
+
     public Texture2D mapa;
-    public ColorAPrefab[] colorMappings;
-    public GameObject reference;
+    public GeneradorDeNivel gNivel;
 
     void Awake()
     {
+        gNivel = GameObject.Find("GeneradorDeNivel").GetComponent<GeneradorDeNivel>();
+
         if (instancia == null)
         {
             instancia = this;
@@ -102,54 +105,18 @@ public class SokobanLevelManager : MonoBehaviour
 
     private Tablero dameTableroNivel3()
     {
-        Tablero tablero = SokobanLevelManager.instancia.dameTablero(8, 8);
-        tablero = GenerarNivel(tablero);
-        return tablero;        
-    }
+        tablero = SokobanLevelManager.instancia.dameTablero(8, 8);
 
-    public Tablero GenerarNivel(Tablero t)
-    {
         for (int x = 0; x < mapa.width; x++)
         {
             for (int y = 0; y < mapa.height; y++)
             {
-                t = GenerateTile(x, y, t);
+                gNivel.GenerateTile(x, y, mapa);
             }
         }
 
-        transform.rotation = reference.transform.rotation;
-        transform.position = reference.transform.position;
-        transform.localScale = reference.transform.localScale;
-        return t;
-    }
-
-    public Tablero GenerateTile(int x, int y, Tablero t)
-    {        
-        Color pixelColor = mapa.GetPixel(x, y);
-
-        //if (pixelColor.a == 0)
-        //{
-        //    return;
-        //}
-
-        foreach (ColorAPrefab colorMapping in colorMappings)
-        {
-            if (colorMapping.color.Equals(pixelColor))
-            {
-
-                Vector2 position = new Vector2(x, y);
-                //Tablero tablero = SokobanLevelManager.instancia.dameTablero(8, 8);                
-                t.setearObjeto(colorMapping.prefab, position);
-                //Debug.Log("salida de tablero por String en for" + this.tablero.ToString());
-                //tablero.setearObjeto(jugador, position);
-
-                //Instantiate(colorMapping.prefab, position, colorMapping.prefab.transform.rotation, transform);
-               
-
-            }
-        }
-        return t;
-    }
+        return tablero;
+    }    
 }
 
 

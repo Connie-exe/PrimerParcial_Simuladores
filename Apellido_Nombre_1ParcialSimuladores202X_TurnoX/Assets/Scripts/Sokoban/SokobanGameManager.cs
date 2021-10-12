@@ -17,6 +17,7 @@ public class SokobanGameManager : MonoBehaviour
 
 
     public List<Vector2> posicionBloque;
+    public List<Vector2> dondeDeberiaPonerElBloque;
     int cont;
 
     private void Start()
@@ -102,8 +103,7 @@ public class SokobanGameManager : MonoBehaviour
             {
                 this.pilaTablerosAnteiores.Push(tablAux);
             }
-            else
-            {
+
                 if (objProximo.CompareTag("bloque") && objProximoProximo == null) //Ya no da sale del mapa ni el bloque
                 {
                     nivel.Tablero.setearObjeto(jugador, posicionJugador, orientacionJugador, 0);
@@ -127,8 +127,7 @@ public class SokobanGameManager : MonoBehaviour
                             nivel.Tablero.setearObjeto(bloque, posicionJugador, orientacionJugador, 2); ;
                         }
                     }
-                }
-            }
+                }            
             
             InstanciadorPrefabs.instancia.graficarObjetosTablero(nivel.Tablero, SokobanLevelManager.instancia.dameLstPrefabsSokoban());
 
